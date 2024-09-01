@@ -15,7 +15,7 @@
 
 
     <application
-        android:label="Hasson IPTV"
+        android:label="HassonTv"
         android:usesCleartextTraffic="true"
         android:hardwareAccelerated="true"
         android:name="${applicationName}"

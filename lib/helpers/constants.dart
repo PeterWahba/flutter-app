@@ -1,6 +1,6 @@
 part of 'helpers.dart';
 
-const String kAppName = "Hasson IPTV";
+const String kAppName = "HassonTv";
 
 //TODO: SHow Ads ( true / false )
 const bool showAds = false;

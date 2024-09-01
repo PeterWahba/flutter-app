@@ -155,7 +155,7 @@ class _IntroImageAnimatedState extends State<IntroImageAnimated> {
               ),
 
               Text(
-                'Hasson IPTV'.toUpperCase(),
+                'HassonTv',
                 textAlign: TextAlign.center,
                 style: Get.textTheme.headlineLarge!.copyWith(
                   color: Colors.white,
