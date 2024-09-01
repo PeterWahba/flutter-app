@@ -153,8 +153,9 @@ class _IntroImageAnimatedState extends State<IntroImageAnimated> {
                 width: 40.w,
                 height: 40.w,
               ),
+
               Text(
-                kAppName.toUpperCase(),
+                'Hasson IPTV'.toUpperCase(),
                 textAlign: TextAlign.center,
                 style: Get.textTheme.headlineLarge!.copyWith(
                   color: Colors.white,
