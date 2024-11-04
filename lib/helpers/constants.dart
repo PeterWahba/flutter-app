@@ -11,7 +11,7 @@ const String kIconMovies = "assets/images/film-reel.png";
 const String kIconSplash = "assets/images/icon.png";
 const String kImageIntro = "assets/images/intro h.jpeg";
 
-const String kPrivacy = "https://www.whmcssmarters.com/terms-of-service/";
+const String kPrivacy = "https://hassontv-eg.com/%D8%B3%D9%8A%D8%A7%D8%B3%D8%A9-%D8%A7%D9%84%D8%AE%D8%B5%D9%88%D8%B5%D9%8A%D8%A9/";
 const String kContact = "https://www.fiverr.com/osmben";
 
 const double sizeTablet = 950;
