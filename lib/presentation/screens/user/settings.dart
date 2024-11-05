@@ -83,18 +83,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text(
-                                        "name: ${userInfo.userInfo!.username}",
+                                        "اسم المستخدم : ${userInfo.userInfo!.username}",
                                         style: Get.textTheme.titleSmall,
                                       ),
                                       const SizedBox(height: 5),
                                       Text(
-                                        "password: ${userInfo.userInfo!.password}",
+                                        "كلمة المرور : ${userInfo.userInfo!.password}",
                                         style: Get.textTheme.titleSmall,
                                       ),
                                       const SizedBox(height: 5),
                                       if (userInfo.serverInfo != null)
                                         Text(
-                                          "Url: ${userInfo.serverInfo!.serverUrl}",
+                                          "${userInfo.serverInfo!.serverUrl} : الخادم ",
                                           style: Get.textTheme.titleSmall,
                                         ),
                                     ],
@@ -112,7 +112,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                 width: 30.w,
                                 child: CardButtonWatchMovie(
                                   isFocused: true,
-                                  title: "Refresh all data",
+                                  title: "قم بتحديث كافة البيانات",
                                   onTap: () {
                                     context
                                         .read<LiveCatyBloc>()
@@ -131,7 +131,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                               SizedBox(
                                 width: 30.w,
                                 child: CardButtonWatchMovie(
-                                  title: "Add New User",
+                                  title: "إضافة مستخدم جديد",
                                   onTap: () {
                                     context.read<AuthBloc>().add(AuthLogOut());
                                     Get.offAllNamed("/");
@@ -142,7 +142,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                               SizedBox(
                                 width: 30.w,
                                 child: CardButtonWatchMovie(
-                                  title: "LogOut",
+                                  title: "تسجيل الخروج",
                                   onTap: () {
                                     context.read<AuthBloc>().add(AuthLogOut());
                                     Get.offAllNamed("/");
@@ -160,26 +160,26 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        'CreatedBy:',
-                        style: Get.textTheme.titleSmall!.copyWith(
-                          fontSize: 12.sp,
-                          color: Colors.grey,
-                        ),
-                      ),
                       InkWell(
                         onTap: () async {
                           await launchUrlString(
-                            "https://mouadzizi.me",
+                            "https://www.fiverr.com/osmben",
                             mode: LaunchMode.externalApplication,
                           );
                         },
                         child: Text(
-                          ' @Azul Mouad',
+                          ' @Ossama Ben Mazzi ',
                           style: Get.textTheme.titleSmall!.copyWith(
                             fontSize: 12.sp,
                             color: Colors.blue,
                           ),
+                        ),
+                      ),
+                      Text(
+                        'تم الإنشاء بواسطة  ',
+                        style: Get.textTheme.titleSmall!.copyWith(
+                          fontSize: 12.sp,
+                          color: Colors.grey,
                         ),
                       ),
                     ],

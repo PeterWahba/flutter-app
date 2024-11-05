@@ -11,48 +11,120 @@ class _IntroScreenState extends State<IntroScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Ink(
-        width: getSize(context).width,
-        height: getSize(context).height,
-        decoration: kDecorBackground,
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/background.png'),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: Column(
           children: [
-            const IntroImageAnimated(),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(
-                    left: 10, right: 10, top: 15, bottom: 10),
-                child: Column(
-                  children: [
-                    Text(
-                      "Watch films anywhere\nand anytime",
-                      textAlign: TextAlign.center,
-                      style: Get.textTheme.headlineLarge!.copyWith(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 22.sp,
-                      ),
-                    ),
-                    SizedBox(height: 2.h),
-                    Text(
-                      "Enjoy watching your favorite movies\nwherever and whenever you like"
-                          .toUpperCase(),
-                      textAlign: TextAlign.center,
-                      style: Get.textTheme.bodyLarge!.copyWith(
-                        color: Colors.white,
-                        fontWeight: FontWeight.normal,
-                        fontSize: 15.sp,
-                      ),
-                    ),
-                    const Spacer(),
-                    CardTallButton(
-                      label: "Add User",
-                      onTap: () => Get.toNamed(screenRegister),
-                    ),
-                  ],
-                ),
+            Padding(
+              padding: EdgeInsets.only(top: 30.h),
+              child: Image.asset('assets/images/logo.png', width: 40.w),
+            ),
+            SizedBox(height: 8.h),
+            Text(
+              'محتوى ترفيهي حصري',
+              style: Get.textTheme.headlineLarge!.copyWith(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 24.sp,
               ),
             ),
+            Text(
+              'خصيصاً لك',
+              style: Get.textTheme.headlineLarge!.copyWith(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 24.sp,
+              ),
+            ),
+            const Spacer(),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 24.w),
+              child: Column(
+                children: [
+                  SizedBox(
+                    width: double.infinity,
+                    height: 6.h,
+                    child: ElevatedButton(
+                      onPressed: () => Get.toNamed(screenRegister),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF2196F3),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(50),
+                        ),
+                      ),
+                      child: Text(
+                        'تسجيل بيانات الاشتراك',
+                        style: TextStyle(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 2.h),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 6.h,
+                    child: ElevatedButton(
+                      onPressed: () async {
+                        const whatsappUrl = 'https://wa.me/+966537445160';
+                        if (await canLaunchUrl(Uri.parse(whatsappUrl))) {
+                          await launchUrl(Uri.parse(whatsappUrl));
+                        }
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF2196F3),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(50),
+                        ),
+                      ),
+                      child: Text(
+                        'احصل على تجربة مجاناً',
+                        style: TextStyle(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 2.h),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 6.h,
+                    child: ElevatedButton(
+                      onPressed: () async {
+                        const websiteUrl = 'https://hassontv.com';
+                        if (await canLaunchUrl(Uri.parse(websiteUrl))) {
+                          await launchUrl(Uri.parse(websiteUrl));
+                        }
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF2196F3),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(50),
+                        ),
+                      ),
+                      child: Text(
+                        'اشتراك الان',
+                        style: TextStyle(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 2.h),
           ],
         ),
       ),

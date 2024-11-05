@@ -44,6 +44,8 @@ import '../../repository/models/user.dart';
 import '../../repository/models/watching.dart';
 import '../widgets/widgets.dart';
 
+
+
 part 'live/live_categories.dart';
 part 'live/live_channels.dart';
 part 'movie/movie_categories.dart';

@@ -9,6 +9,7 @@ class WelcomeScreen extends StatefulWidget {
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
   late InterstitialAd _interstitialAd;
+
   _loadIntel() async {
     if (!showAds) {
       return false;
@@ -62,9 +63,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                           }
                           if (state is LiveCatySuccess) {
                             return CardWelcomeTv(
-                              title: "LIVE TV",
+                              title: "بث مباشر",
                               autoFocus: true,
-                              subTitle: "${state.categories.length} Channels",
+                              subTitle: "${state.categories.length} قناة",
                               icon: kIconLive,
                               onTap: () {
                                 Get.toNamed(screenLiveCategories)!
@@ -90,8 +91,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                 child: CircularProgressIndicator());
                           } else if (state is MovieCatySuccess) {
                             return CardWelcomeTv(
-                              title: "Movies",
-                              subTitle: "${state.categories.length} Channels",
+                              title: "أفلام",
+                              subTitle: "${state.categories.length} قناة",
                               icon: kIconMovies,
                               onTap: () {
                                 Get.toNamed(screenMovieCategories)!
@@ -116,8 +117,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                 child: CircularProgressIndicator());
                           } else if (state is SeriesCatySuccess) {
                             return CardWelcomeTv(
-                              title: "Series",
-                              subTitle: "${state.categories.length} Channels",
+                              title: "مسلسلات",
+                              subTitle: "${state.categories.length} قناة",
                               icon: kIconSeries,
                               onTap: () {
                                 Get.toNamed(screenSeriesCategories)!
@@ -141,21 +142,21 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           CardWelcomeSetting(
-                            title: 'Catch up',
+                            title: ' تحديث المحتوى',
                             icon: FontAwesomeIcons.rotate,
                             onTap: () {
                               Get.toNamed(screenCatchUp);
                             },
                           ),
                           CardWelcomeSetting(
-                            title: 'Favourites',
+                            title: 'المفضلة',
                             icon: FontAwesomeIcons.heart,
                             onTap: () {
                               Get.toNamed(screenFavourite);
                             },
                           ),
                           CardWelcomeSetting(
-                            title: 'Settings',
+                            title: 'إعدادات',
                             icon: FontAwesomeIcons.gear,
                             onTap: () {
                               Get.toNamed(screenSettings);
@@ -171,23 +172,23 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  'By using this application, you agree to the',
-                  style: Get.textTheme.titleSmall!.copyWith(
-                    fontSize: 12.sp,
-                    color: Colors.grey,
-                  ),
-                ),
                 InkWell(
                   onTap: () async {
                     await launchUrlString(kPrivacy);
                   },
                   child: Text(
-                    ' Terms of Services.',
+                    ' شروط الخدمات.',
                     style: Get.textTheme.titleSmall!.copyWith(
                       fontSize: 12.sp,
                       color: Colors.blue,
                     ),
+                  ),
+                ),
+                Text(
+                  'باستخدام هذا التطبيق، فإنك توافق على',
+                  style: Get.textTheme.titleSmall!.copyWith(
+                    fontSize: 12.sp,
+                    color: Colors.grey,
                   ),
                 ),
               ],

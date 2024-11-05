@@ -27,7 +27,7 @@ class _CatchUpScreenState extends State<CatchUpScreen> {
                 children: [
                   Expanded(
                     child: CardButtonWatchMovie(
-                      title: "Movies",
+                      title: "أفلام",
                       hideBorder: true,
                       isSelected: indexPage == 0,
                       index: 0,
@@ -45,7 +45,7 @@ class _CatchUpScreenState extends State<CatchUpScreen> {
                   ),
                   Expanded(
                     child: CardButtonWatchMovie(
-                      title: "Series",
+                      title: "مسلسلات",
                       hideBorder: true,
                       isSelected: indexPage == 1,
                       index: 1,

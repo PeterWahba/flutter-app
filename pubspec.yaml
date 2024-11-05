@@ -23,6 +23,7 @@ dependencies:
   filling_slider: ^0.0.3
   loading_animation_widget: ^1.2.1
   wakelock: ^0.6.2
+  flutter_screenutil: ^5.5.3+2
 
 
   #Logic

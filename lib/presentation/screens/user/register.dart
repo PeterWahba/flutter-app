@@ -18,7 +18,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     showDialog(
       context: context,
       builder: (_) => CupertinoAlertDialog(
-        title: const Text('Past your M3u Link'),
+        title: const Text(' الخاص بك M3u ضع رابط '),
         content: Material(
           color: Colors.transparent,
           child: TextField(
@@ -40,7 +40,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 Get.back();
               },
               child: Text(
-                'Cancel',
+                'إلغاء',
                 style: Get.textTheme.bodyMedium!.copyWith(
                   color: Colors.grey.shade400,
                 ),
@@ -68,7 +68,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 }
               },
               child: Text(
-                'Save',
+                'حفظ',
                 style: Get.textTheme.bodyMedium!.copyWith(
                   color: kColorPrimary,
                 ),
@@ -146,7 +146,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   _convertM3utoXtreme(style);
                                 },
                                 label: Text(
-                                  'ADD M3U',
+                                  'إضافة M3U',
                                   style:
                                       Get.theme.textTheme.bodyMedium!.copyWith(
                                     color: Colors.white,
@@ -177,7 +177,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   ),
                                   const SizedBox(height: 15),
                                   Text(
-                                    'SignIn to discover all movies & tv shows & lives tv,\nand enjoy our features.',
+                                    'قم بتسجيل الدخول لاكتشاف جميع الأفلام والبرامج التلفزيونية والبث التلفزيوني المباشر،\nوالتمتع بميزاتنا.',
                                     textAlign: TextAlign.center,
                                     style: Get.textTheme.bodyLarge!.copyWith(
                                       color: Colors.white,
@@ -187,7 +187,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   TextField(
                                     controller: _username,
                                     decoration: InputDecoration(
-                                      hintText: "Username",
+                                      hintText: "اسم المستخدم",
                                       hintStyle:
                                           Get.textTheme.bodyMedium!.copyWith(
                                         color: Colors.grey,
@@ -204,7 +204,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   TextField(
                                     controller: _password,
                                     decoration: InputDecoration(
-                                      hintText: "Password",
+                                      hintText: "كلمة المرور",
                                       hintStyle:
                                           Get.textTheme.bodyMedium!.copyWith(
                                         color: Colors.grey,
@@ -248,13 +248,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                           size: 12.sp,
                                         ),
                                         const SizedBox(width: 8),
-                                        Text(
-                                          'By registering, you are agreeing to our ',
-                                          style: Get.textTheme.bodyMedium!
-                                              .copyWith(
-                                            color: Colors.white70,
-                                          ),
-                                        ),
                                         InkWell(
                                           onTap: () async {
                                             var url = Uri.parse(kPrivacy);
@@ -263,13 +256,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                                     .externalApplication);
                                           },
                                           child: Text(
-                                            'privacy policy.',
+                                            'سياسة الخصوصية ',
                                             style: Get.textTheme.bodyMedium!
                                                 .copyWith(
                                               color: kColorPrimary
                                                   .withOpacity(.70),
                                               fontWeight: FontWeight.bold,
                                             ),
+                                          ),
+                                        ),
+                                        Text(
+                                          'من خلال التسجيل، فإنك توافق على ',
+                                          style: Get.textTheme.bodyMedium!
+                                              .copyWith(
+                                            color: Colors.white70,
                                           ),
                                         ),
                                       ],
@@ -282,7 +282,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 10),
                             child: CardTallButton(
-                              label: "Add User",
+                              label: "إضافة مستخدم",
                               isLoading: isLoading,
                               onTap: () {
                                 //Get.toNamed(screenDownload)

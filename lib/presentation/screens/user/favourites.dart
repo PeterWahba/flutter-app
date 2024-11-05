@@ -27,7 +27,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                 children: [
                   Expanded(
                     child: CardButtonWatchMovie(
-                      title: "Live",
+                      title: "مباشر",
                       // isFocused: true,
                       hideBorder: true,
                       isSelected: indexPage == 0,
@@ -46,7 +46,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                   ),
                   Expanded(
                     child: CardButtonWatchMovie(
-                      title: "Movies",
+                      title: "أفلام",
                       hideBorder: true,
                       isSelected: indexPage == 1,
                       index: 1,
@@ -64,7 +64,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                   ),
                   Expanded(
                     child: CardButtonWatchMovie(
-                      title: "Series",
+                      title: "مسلسلات",
                       hideBorder: true,
                       isSelected: indexPage == 2,
                       index: 2,
@@ -98,7 +98,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
 }
 
 class _FavLivePage extends StatelessWidget {
-  const _FavLivePage({super.key});
+  const _FavLivePage();
 
   @override
   Widget build(BuildContext context) {
@@ -144,7 +144,7 @@ class _FavLivePage extends StatelessWidget {
 }
 
 class _FavMoviesPage extends StatelessWidget {
-  const _FavMoviesPage({super.key});
+  const _FavMoviesPage();
 
   @override
   Widget build(BuildContext context) {
@@ -191,7 +191,7 @@ class _FavMoviesPage extends StatelessWidget {
 }
 
 class _FavSeriesPage extends StatelessWidget {
-  const _FavSeriesPage({super.key});
+  const _FavSeriesPage();
 
   @override
   Widget build(BuildContext context) {

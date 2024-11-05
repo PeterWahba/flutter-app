@@ -170,7 +170,7 @@ class _RegisterUserTvState extends State<RegisterUserTv> {
                                       children: [
                                         const SizedBox(height: 15),
                                         CardInputTv(
-                                          label: "username",
+                                          label: "اسم المستخدم",
                                           controller: _username,
                                           icon: FontAwesomeIcons.solidUser,
                                           focusNode: focusNode0,
@@ -185,7 +185,7 @@ class _RegisterUserTvState extends State<RegisterUserTv> {
                                         ),
                                         const SizedBox(height: 10),
                                         CardInputTv(
-                                          label: "password",
+                                          label: "كلمة المرور",
                                           controller: _password,
                                           icon: FontAwesomeIcons.lock,
                                           focusNode: focusNode1,
@@ -221,7 +221,7 @@ class _RegisterUserTvState extends State<RegisterUserTv> {
                                             onTap: () {
                                               _login();
                                             },
-                                            title: 'Login',
+                                            title: 'تسجيل الدخول',
                                           ),
                                         ),
                                       ],
