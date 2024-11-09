@@ -71,11 +71,13 @@ class AppBarWelcome extends StatelessWidget {
 }
 
 class CardWelcomeSetting extends StatelessWidget {
-  const CardWelcomeSetting(
-      {super.key,
-      required this.title,
-      required this.icon,
-      required this.onTap});
+  const CardWelcomeSetting({
+    super.key,
+    required this.title,
+    required this.icon,
+    required this.onTap,
+  });
+
   final String title;
   final IconData icon;
   final Function() onTap;
@@ -105,7 +107,12 @@ class CardWelcomeSetting extends StatelessWidget {
           const SizedBox(width: 10),
           Text(
             title,
-            style: Get.textTheme.headlineSmall,
+            style: GoogleFonts.notoKufiArabic(
+              textStyle: Get.textTheme.headlineSmall!.copyWith(
+                fontSize: 16, // Adjust size as needed
+                color: Colors.white, // Set color to black or any desired color
+              ),
+            ),
           ),
         ],
       ),
@@ -122,6 +129,7 @@ class CardWelcomeTv extends StatelessWidget {
     required this.subTitle,
     this.autoFocus = false,
   });
+
   final String icon;
   final String title;
   final String subTitle;
@@ -153,12 +161,17 @@ class CardWelcomeTv extends StatelessWidget {
             SizedBox(height: 3.h),
             Text(
               title,
-              style: Get.textTheme.displaySmall,
+              style: GoogleFonts.notoKufiArabic(
+                textStyle: Get.textTheme.displaySmall,
+              ),
             ),
             SizedBox(height: 1.h),
             Text(
               "◍ $subTitle",
-              style: Get.textTheme.titleSmall!.copyWith(color: Colors.white70),
+              style: GoogleFonts.notoKufiArabic(
+                textStyle:
+                    Get.textTheme.titleSmall!.copyWith(color: Colors.white70),
+              ),
             ),
           ],
         ),
@@ -174,6 +187,7 @@ class CardTallButton extends StatelessWidget {
       required this.onTap,
       this.radius = 5,
       this.isLoading = false});
+
   final String label;
   final Function() onTap;
   final double radius;

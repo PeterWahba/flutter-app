@@ -11,6 +11,7 @@ import 'package:pod_player/pod_player.dart';
 import 'package:readmore/readmore.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../helpers/helpers.dart';
 import '../../logic/blocs/auth/auth_bloc.dart';
@@ -20,9 +21,18 @@ import '../../repository/models/serie_details.dart';
 import '../../repository/models/watching.dart';
 import '../screens/screens.dart';
 
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 part 'dialog.dart';
+
 part 'live.dart';
+
 part 'movie.dart';
+
 part 'user.dart';
+
 part 'welcome.dart';
+
 part 'watching.dart';
+
+part 'register.dart';

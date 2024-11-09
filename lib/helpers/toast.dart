@@ -9,7 +9,7 @@ showWarningToast(context, title, message) {
       title: title,
       message: message,
       contentType: ContentType.failure,
-      color: kColorPrimary,
+      color: Colors.red,
       inMaterialBanner: true,
     ),
   );

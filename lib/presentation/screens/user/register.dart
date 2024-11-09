@@ -9,16 +9,31 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   final _fullUrl = TextEditingController();
-
   final _username = TextEditingController();
   final _password = TextEditingController();
   final _url = TextEditingController();
 
-  _convertM3utoXtreme(style) {
+  // List of allowed servers
+  final List<String> allowedServers = [
+    "http://max84.a8slate.com:2052",
+    "http://speed.manef2025.xyz:80",
+    "http://speed4k.pro:80",
+    "http://max.amigo00.com:2052",
+    "http://larache.pro:80"
+  ];
+
+  // Validation function
+  bool isValidServer(String url) {
+    url = url.replaceAll(RegExp(r'/+$'), '');
+    return allowedServers.contains(url);
+  }
+
+  // Function to handle URL parsing and extracting parameters
+  _convertM3utoXtreme(TextStyle style) {
     showDialog(
       context: context,
       builder: (_) => CupertinoAlertDialog(
-        title: const Text(' الخاص بك M3u ضع رابط '),
+        title: const Text('ضع رابط M3U الخاص بك'),
         content: Material(
           color: Colors.transparent,
           child: TextField(
@@ -28,6 +43,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   "http://domain.tr:8080?get.php/username=test&password=123",
               hintStyle: Get.textTheme.bodyMedium!.copyWith(
                 color: Colors.grey,
+                fontFamily: GoogleFonts.notoKufiArabic().fontFamily,
               ),
             ),
             style: style,
@@ -35,44 +51,57 @@ class _RegisterScreenState extends State<RegisterScreen> {
         ),
         actions: [
           TextButton(
-              onPressed: () {
-                _fullUrl.clear();
-                Get.back();
-              },
-              child: Text(
-                'إلغاء',
-                style: Get.textTheme.bodyMedium!.copyWith(
-                  color: Colors.grey.shade400,
-                ),
-              )),
+            onPressed: () {
+              _fullUrl.clear();
+              Get.back();
+            },
+            child: Text(
+              'إلغاء',
+              style: Get.textTheme.bodyMedium!.copyWith(
+                color: Colors.grey.shade400,
+                fontFamily: GoogleFonts.notoKufiArabic().fontFamily,
+              ),
+            ),
+          ),
           TextButton(
-              onPressed: () {
-                var txt = _fullUrl.text;
-                if (txt.isEmpty) {
-                  return;
-                }
+            onPressed: () {
+              var txt = _fullUrl.text;
+              if (txt.isEmpty) {
+                return;
+              }
 
-                if (Uri.tryParse(txt)?.hasAbsolutePath ?? false) {
-                  Uri url = Uri.parse(txt);
-                  var parameters = url.queryParameters;
-                  debugPrint("${url.scheme}://${url.host}:${url.port}");
+              if (Uri.tryParse(txt)?.hasAbsolutePath ?? false) {
+                Uri url = Uri.parse(txt);
+                var parameters = url.queryParameters;
+                String serverUrl =
+                    "${url.scheme}://${url.host}${url.hasPort ? ":${url.port}" : ""}";
 
-                  _username.text = parameters['username'].toString();
-                  _password.text = parameters['password'].toString();
-                  _url.text =
-                      "${url.scheme}://${url.host}${url.hasPort ? ":${url.port}" : ""}";
+                if (isValidServer(serverUrl)) {
+                  _username.text = parameters['username'] ?? '';
+                  _password.text = parameters['password'] ?? '';
+                  _url.text = serverUrl;
                   Get.back();
                 } else {
-                  debugPrint("this text is not url!!");
-                  Get.snackbar("Error", "This data is not correct??");
+                  Get.back();
+                  showWarningToast(
+                    context,
+                    'اشتراك غير صالح',
+                    'اشتراكك ليس من HassonTV. يرجى الحصول على اشتراكك من hassontv.com',
+                  );
                 }
-              },
-              child: Text(
-                'حفظ',
-                style: Get.textTheme.bodyMedium!.copyWith(
-                  color: kColorPrimary,
-                ),
-              )),
+              } else {
+                debugPrint("This text is not a valid URL!");
+                Get.snackbar("Error", "The provided data is not correct.");
+              }
+            },
+            child: Text(
+              'حفظ',
+              style: Get.textTheme.bodyMedium!.copyWith(
+                color: kColorPrimary,
+                fontFamily: GoogleFonts.notoKufiArabic().fontFamily,
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -109,8 +138,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     if (state is AuthFailed) {
                       showWarningToast(
                         context,
-                        'Login failed.',
-                        'Please check your IPTV credentials and try again.',
+                        'فشل تسجيل الدخول.',
+                        'يرجى التحقق من بيانات اعتماد IPTV الخاصة بك والمحاولة مرة أخرى.',
                       );
                     } else if (state is AuthSuccess) {
                       context.read<LiveCatyBloc>().add(GetLiveCategories());
@@ -131,11 +160,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               IconButton(
-                                  onPressed: () => Get.back(),
-                                  icon: const Icon(
-                                    FontAwesomeIcons.chevronLeft,
-                                    color: Colors.white,
-                                  )),
+                                onPressed: () => Get.back(),
+                                icon: const Icon(
+                                  FontAwesomeIcons.chevronLeft,
+                                  color: Colors.white,
+                                ),
+                              ),
                               TextButton.icon(
                                 icon: const Icon(
                                   FontAwesomeIcons.link,
@@ -151,6 +181,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                       Get.theme.textTheme.bodyMedium!.copyWith(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
+                                    fontFamily:
+                                        GoogleFonts.notoKufiArabic().fontFamily,
                                   ),
                                 ),
                               ),
@@ -171,7 +203,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                         kIconSplash,
                                         width: .7.dp,
                                         height: .7.dp,
-                                        //  color: Colors.white,
                                       ),
                                     ],
                                   ),
@@ -181,6 +212,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     textAlign: TextAlign.center,
                                     style: Get.textTheme.bodyLarge!.copyWith(
                                       color: Colors.white,
+                                      fontFamily: GoogleFonts.notoKufiArabic()
+                                          .fontFamily,
                                     ),
                                   ),
                                   const SizedBox(height: 15),
@@ -191,6 +224,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                       hintStyle:
                                           Get.textTheme.bodyMedium!.copyWith(
                                         color: Colors.grey,
+                                        fontFamily: GoogleFonts.notoKufiArabic()
+                                            .fontFamily,
                                       ),
                                       suffixIcon: const Icon(
                                         FontAwesomeIcons.solidUser,
@@ -208,6 +243,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                       hintStyle:
                                           Get.textTheme.bodyMedium!.copyWith(
                                         color: Colors.grey,
+                                        fontFamily: GoogleFonts.notoKufiArabic()
+                                            .fontFamily,
                                       ),
                                       suffixIcon: const Icon(
                                         FontAwesomeIcons.lock,
@@ -240,7 +277,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
-                                      mainAxisSize: MainAxisSize.min,
                                       children: [
                                         Icon(
                                           FontAwesomeIcons.solidCircle,
@@ -262,6 +298,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                               color: kColorPrimary
                                                   .withOpacity(.70),
                                               fontWeight: FontWeight.bold,
+                                              fontFamily:
+                                                  GoogleFonts.notoKufiArabic()
+                                                      .fontFamily,
                                             ),
                                           ),
                                         ),
@@ -270,6 +309,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                           style: Get.textTheme.bodyMedium!
                                               .copyWith(
                                             color: Colors.white70,
+                                            fontFamily:
+                                                GoogleFonts.notoKufiArabic()
+                                                    .fontFamily,
                                           ),
                                         ),
                                       ],
@@ -285,16 +327,24 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               label: "إضافة مستخدم",
                               isLoading: isLoading,
                               onTap: () {
-                                //Get.toNamed(screenDownload)
-
                                 if (_username.text.isNotEmpty &&
                                     _password.text.isNotEmpty &&
                                     _url.text.isNotEmpty) {
-                                  context.read<AuthBloc>().add(AuthRegister(
-                                        _username.text,
-                                        _password.text,
-                                        _url.text,
-                                      ));
+                                  if (isValidServer(_url.text.trim())) {
+                                    context.read<AuthBloc>().add(AuthRegister(
+                                          _username.text,
+                                          _password.text,
+                                          _url.text,
+                                        ));
+                                  } else {
+                                    showWarningToast(
+                                      context,
+                                      'اشتراك غير صالح',
+                                      // Title: Invalid subscription
+                                      'اشتراكك ليس من HassonTV. يرجى الحصول على اشتراكك من hassontv.com',
+                                      // Message
+                                    );
+                                  }
                                 }
                               },
                             ),

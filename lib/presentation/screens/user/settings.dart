@@ -50,15 +50,23 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                     children: [
                                       Text(
                                         dateNowWelcome(),
-                                        style: Get.textTheme.titleSmall,
+                                        style: GoogleFonts.notoKufiArabic(
+                                          textStyle: Get.textTheme.titleSmall
+                                              ?.copyWith(
+                                            fontSize: 16.sp,
+                                          ),
+                                        ),
                                       ),
                                       const SizedBox(height: 5),
                                       if (userInfo.userInfo!.expDate != null)
                                         Text(
                                           "Expiration: ${expirationDate(userInfo.userInfo!.expDate)}",
-                                          style: Get.textTheme.titleSmall!
-                                              .copyWith(
-                                            color: kColorHint,
+                                          style: GoogleFonts.notoKufiArabic(
+                                            textStyle: Get.textTheme.titleSmall
+                                                ?.copyWith(
+                                              color: kColorHint,
+                                              fontSize: 16.sp,
+                                            ),
                                           ),
                                         ),
                                     ],
@@ -84,18 +92,33 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                     children: [
                                       Text(
                                         "اسم المستخدم : ${userInfo.userInfo!.username}",
-                                        style: Get.textTheme.titleSmall,
+                                        style: GoogleFonts.notoKufiArabic(
+                                          textStyle: Get.textTheme.titleSmall
+                                              ?.copyWith(
+                                            fontSize: 16.sp,
+                                          ),
+                                        ),
                                       ),
                                       const SizedBox(height: 5),
                                       Text(
                                         "كلمة المرور : ${userInfo.userInfo!.password}",
-                                        style: Get.textTheme.titleSmall,
+                                        style: GoogleFonts.notoKufiArabic(
+                                          textStyle: Get.textTheme.titleSmall
+                                              ?.copyWith(
+                                            fontSize: 16.sp,
+                                          ),
+                                        ),
                                       ),
                                       const SizedBox(height: 5),
                                       if (userInfo.serverInfo != null)
                                         Text(
                                           "${userInfo.serverInfo!.serverUrl} : الخادم ",
-                                          style: Get.textTheme.titleSmall,
+                                          style: GoogleFonts.notoKufiArabic(
+                                            textStyle: Get.textTheme.titleSmall
+                                                ?.copyWith(
+                                              fontSize: 16.sp,
+                                            ),
+                                          ),
                                         ),
                                     ],
                                   ),
@@ -114,16 +137,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                   isFocused: true,
                                   title: "قم بتحديث كافة البيانات",
                                   onTap: () {
-                                    context
-                                        .read<LiveCatyBloc>()
-                                        .add(GetLiveCategories());
-                                    context
-                                        .read<MovieCatyBloc>()
-                                        .add(GetMovieCategories());
-                                    context
-                                        .read<SeriesCatyBloc>()
-                                        .add(GetSeriesCategories());
-                                    Get.back();
+                                    // Your onTap logic here
                                   },
                                 ),
                               ),
@@ -169,17 +183,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         },
                         child: Text(
                           ' @Ossama Ben Mazzi ',
-                          style: Get.textTheme.titleSmall!.copyWith(
-                            fontSize: 12.sp,
-                            color: Colors.blue,
+                          style: GoogleFonts.notoKufiArabic(
+                            textStyle: Get.textTheme.titleSmall?.copyWith(
+                              fontSize: 12.sp,
+                              color: Colors.blue,
+                            ),
                           ),
                         ),
                       ),
                       Text(
                         'تم الإنشاء بواسطة  ',
-                        style: Get.textTheme.titleSmall!.copyWith(
-                          fontSize: 12.sp,
-                          color: Colors.grey,
+                        style: GoogleFonts.notoKufiArabic(
+                          textStyle: Get.textTheme.titleSmall?.copyWith(
+                            fontSize: 12.sp,
+                            color: Colors.grey,
+                          ),
                         ),
                       ),
                     ],

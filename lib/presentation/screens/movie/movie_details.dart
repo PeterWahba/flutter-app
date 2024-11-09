@@ -3,6 +3,7 @@ part of '../screens.dart';
 class MovieContent extends StatefulWidget {
   const MovieContent(
       {super.key, required this.videoId, required this.channelMovie});
+
   final String videoId;
   final ChannelMovie channelMovie;
 
@@ -84,19 +85,19 @@ class _MovieContentState extends State<MovieContent> {
                                             CardInfoMovie(
                                               icon:
                                                   FontAwesomeIcons.clapperboard,
-                                              hint: 'Director',
+                                              hint: 'المخرج',
                                               title: movie.info!.director ?? "",
                                             ),
                                             CardInfoMovie(
                                               icon:
                                                   FontAwesomeIcons.calendarDay,
-                                              hint: 'Release Date',
+                                              hint: 'تاريخ النشر',
                                               title: expirationDate(
                                                   movie.info!.releasedate),
                                             ),
                                             CardInfoMovie(
                                               icon: FontAwesomeIcons.clock,
-                                              hint: 'Duration',
+                                              hint: 'المدة',
                                               title: movie.info!.duration ?? "",
                                             ),
                                             CardInfoMovie(
@@ -110,7 +111,7 @@ class _MovieContentState extends State<MovieContent> {
                                         const SizedBox(height: 15),
                                         CardInfoMovie(
                                           icon: FontAwesomeIcons.film,
-                                          hint: 'Genre:',
+                                          hint: 'النوع:',
                                           title: movie.info!.genre ?? "",
                                         ),
                                         const SizedBox(height: 15),
@@ -129,7 +130,7 @@ class _MovieContentState extends State<MovieContent> {
                                                 movie.info!.youtubeTrailer!
                                                     .isNotEmpty)
                                               CardButtonWatchMovie(
-                                                title: "watch trailer",
+                                                title: "شاهد المقطع الدعائي",
                                                 onTap: () {
                                                   showDialog(
                                                       context: context,
@@ -152,7 +153,7 @@ class _MovieContentState extends State<MovieContent> {
                                               ),
                                             SizedBox(width: 3.w),
                                             CardButtonWatchMovie(
-                                              title: "watch Now",
+                                              title: "شاهد الان",
                                               isFocused: true,
                                               onTap: () {
                                                 final link =

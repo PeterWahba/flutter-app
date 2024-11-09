@@ -43,26 +43,44 @@ import '../../repository/models/serie_details.dart';
 import '../../repository/models/user.dart';
 import '../../repository/models/watching.dart';
 import '../widgets/widgets.dart';
-
-
+import 'package:google_fonts/google_fonts.dart';
 
 part 'live/live_categories.dart';
+
 part 'live/live_channels.dart';
+
 part 'movie/movie_categories.dart';
+
 part 'movie/movie_channels.dart';
+
 part 'movie/movie_details.dart';
+
 part 'player/full_video.dart';
+
 part 'player/player_video.dart';
+
 part 'series/serie_details.dart';
+
 part 'series/serie_seasons.dart';
+
 part 'series/series_categories.dart';
+
 part 'series/series_channels.dart';
+
 part 'user/demo.dart';
+
 part 'user/register.dart';
+
 part 'user/register_tv.dart';
+
 part 'user/settings.dart';
+
 part 'user/splash.dart';
+
 part 'user/intro.dart';
+
 part 'user/favourites.dart';
+
 part 'welcome.dart';
+
 part 'user/catch_up.dart';

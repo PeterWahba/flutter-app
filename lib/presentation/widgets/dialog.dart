@@ -2,6 +2,7 @@ part of 'widgets.dart';
 
 class DialogTrailerYoutube extends StatefulWidget {
   const DialogTrailerYoutube({super.key, required this.trailer, this.thumb});
+
   final String trailer;
   final String? thumb;
 
@@ -75,12 +76,12 @@ class _DialogTrailerYoutubeState extends State<DialogTrailerYoutube> {
               children: [
                 CardButtonWatchMovie(
                   isFocused: true,
-                  title: "Exit",
+                  title: "الخروج",
                   onTap: () => Get.back(),
                 ),
                 const SizedBox(width: 15),
                 CardButtonWatchMovie(
-                  title: controller.isVideoPlaying ? "Pause" : "Play",
+                  title: controller.isVideoPlaying ? "Pause" : "شروع",
                   onTap: () {
                     setState(() {
                       if (controller.isVideoPlaying) {

@@ -3,6 +3,7 @@ part of 'widgets.dart';
 class CardChannelMovieItem extends StatelessWidget {
   const CardChannelMovieItem(
       {super.key, required this.onTap, this.title, this.image});
+
   final Function() onTap;
   final String? title;
   final String? image;
@@ -69,6 +70,8 @@ class CardButtonWatchMovie extends StatefulWidget {
     this.index,
     this.onFocusChanged,
   });
+
+  // Keep title as String, not Text
   final String title;
   final Function() onTap;
   final bool isFocused;
@@ -111,7 +114,7 @@ class _CardButtonWatchMovieState extends State<CardButtonWatchMovie> {
                 : LinearGradient(
                     colors: [
                       kColorPrimary.withOpacity(.4),
-                      kColorPrimaryDark.withOpacity(.4)
+                      kColorPrimaryDark.withOpacity(.4),
                     ],
                   ),
           ),
@@ -121,10 +124,12 @@ class _CardButtonWatchMovieState extends State<CardButtonWatchMovie> {
           ),
           child: Center(
             child: Text(
-              widget.title.toUpperCase(),
-              style: isFocused
-                  ? Get.textTheme.headlineMedium
-                  : Get.textTheme.headlineSmall,
+              widget.title.toUpperCase(), // Use widget.title as string directly
+              style: GoogleFonts.notoKufiArabic(
+                textStyle: isFocused
+                    ? Get.textTheme.headlineMedium
+                    : Get.textTheme.headlineSmall,
+              ),
             ),
           ),
         ),
@@ -140,6 +145,7 @@ class CardInfoMovie extends StatelessWidget {
       required this.title,
       required this.icon,
       this.isShowMore = false});
+
   final String hint;
   final String title;
   final IconData icon;
@@ -199,6 +205,7 @@ class CardInfoMovie extends StatelessWidget {
 class CardMovieImageRate extends StatelessWidget {
   const CardMovieImageRate(
       {super.key, required this.image, required this.rate});
+
   final String image;
   final String rate;
 
@@ -238,6 +245,7 @@ class CardMovieImageRate extends StatelessWidget {
 
 class CardMovieImagesBackground extends StatefulWidget {
   const CardMovieImagesBackground({super.key, required this.listImages});
+
   final List<String> listImages;
 
   @override
@@ -326,6 +334,7 @@ class CardEpisodeItem extends StatelessWidget {
       required this.onFocused,
       required this.onTap,
       required this.index});
+
   final Episode? episode;
   final bool isSelected;
   final int index;
@@ -444,6 +453,7 @@ class CardSeasonItem extends StatelessWidget {
     required this.onFocused,
     required this.onTap,
   });
+
   final String number;
   final bool isSelected;
   final Function(bool) onFocused;

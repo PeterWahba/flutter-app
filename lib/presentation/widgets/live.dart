@@ -7,6 +7,7 @@ class AppBarLive extends StatefulWidget {
     this.isLiked = false,
     this.onLike,
   });
+
   final Function(String)? onSearch;
   final bool isLiked;
   final Function()? onLike;
@@ -59,7 +60,7 @@ class _AppBarLiveState extends State<AppBarLive> {
                       controller: _search,
                       onChanged: widget.onSearch,
                       decoration: const InputDecoration(
-                        hintText: "Search...",
+                        hintText: "بحث...",
                       ),
                     ),
                   ),
@@ -181,7 +182,7 @@ class _AppBarMovieState extends State<AppBarMovie> {
                         controller: _search,
                         onChanged: widget.onSearch,
                         decoration: const InputDecoration(
-                          hintText: "Search...",
+                          hintText: "بحث...",
                         ),
                       ),
                     ),
@@ -304,7 +305,7 @@ class _AppBarSeriesState extends State<AppBarSeries> {
                         controller: _search,
                         onChanged: widget.onSearch,
                         decoration: const InputDecoration(
-                          hintText: "Search...",
+                          hintText: "بحث...",
                         ),
                       ),
                     ),
@@ -428,6 +429,7 @@ class CardLiveItem extends StatelessWidget {
       this.isSelected = false,
       this.link,
       this.image});
+
   final String title;
   final Function() onTap;
   final bool isSelected;

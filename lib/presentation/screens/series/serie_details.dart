@@ -3,6 +3,7 @@ part of '../screens.dart';
 class SerieContent extends StatefulWidget {
   const SerieContent(
       {super.key, required this.videoId, required this.channelSerie});
+
   final String videoId;
   final ChannelSerie channelSerie;
 
@@ -84,13 +85,13 @@ class _SerieContentState extends State<SerieContent> {
                                             CardInfoMovie(
                                               icon:
                                                   FontAwesomeIcons.clapperboard,
-                                              hint: 'Director',
+                                              hint: 'المخرج',
                                               title: movie.info!.director ?? "",
                                             ),
                                             CardInfoMovie(
                                               icon:
                                                   FontAwesomeIcons.calendarDay,
-                                              hint: 'Release Date',
+                                              hint: 'تاريخ النشر',
                                               title: movie.info!.releaseDate ??
                                                   "N/a",
                                             ),
@@ -102,7 +103,7 @@ class _SerieContentState extends State<SerieContent> {
                                             ),
                                             CardInfoMovie(
                                               icon: FontAwesomeIcons.film,
-                                              hint: 'Genre:',
+                                              hint: 'النوع:',
                                               isShowMore: true,
                                               title: movie.info!.genre ?? "",
                                             ),
@@ -124,7 +125,7 @@ class _SerieContentState extends State<SerieContent> {
                                                 movie.info!.youtubeTrailer!
                                                     .isNotEmpty)
                                               CardButtonWatchMovie(
-                                                title: "watch trailer",
+                                                title: "شاهد المقطع الدعائي",
                                                 onTap: () {
                                                   showDialog(
                                                       context: context,
@@ -151,7 +152,7 @@ class _SerieContentState extends State<SerieContent> {
                                                     .isNotEmpty)
                                               SizedBox(width: 3.w),
                                             CardButtonWatchMovie(
-                                              title: "watch Now",
+                                              title: "شاهد الان",
                                               isFocused: true,
                                               onTap: () {
                                                 Get.to(() => SerieSeasons(

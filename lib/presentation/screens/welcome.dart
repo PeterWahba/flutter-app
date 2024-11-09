@@ -15,17 +15,18 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       return false;
     }
     InterstitialAd.load(
-        adUnitId: kInterstitial,
-        request: const AdRequest(),
-        adLoadCallback: InterstitialAdLoadCallback(
-          onAdLoaded: (InterstitialAd ad) {
-            debugPrint("Ads is Loaded");
-            _interstitialAd = ad;
-          },
-          onAdFailedToLoad: (LoadAdError error) {
-            debugPrint('InterstitialAd failed to load: $error');
-          },
-        ));
+      adUnitId: kInterstitial,
+      request: const AdRequest(),
+      adLoadCallback: InterstitialAdLoadCallback(
+        onAdLoaded: (InterstitialAd ad) {
+          debugPrint("Ads is Loaded");
+          _interstitialAd = ad;
+        },
+        onAdFailedToLoad: (LoadAdError error) {
+          debugPrint('InterstitialAd failed to load: $error');
+        },
+      ),
+    );
   }
 
   @override
@@ -77,7 +78,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                               },
                             );
                           }
-
                           return const Text('error live caty');
                         },
                       ),
@@ -103,7 +103,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                               },
                             );
                           }
-
                           return const Text('error movie caty');
                         },
                       ),
@@ -129,7 +128,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                               },
                             );
                           }
-
                           return const Text('could not load series');
                         },
                       ),
@@ -142,7 +140,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           CardWelcomeSetting(
-                            title: ' تحديث المحتوى',
+                            title: 'تحديث ',
                             icon: FontAwesomeIcons.rotate,
                             onTap: () {
                               Get.toNamed(screenCatchUp);
